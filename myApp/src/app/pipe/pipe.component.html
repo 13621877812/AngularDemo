@@ -1,0 +1,41 @@
+<div>
+   <app-nav [title]="'管道'" [backIsShow]="backIsShow" [addIsShow]="addIsShow"></app-nav>
+   <fieldset>
+      <legend>自带的管道</legend>
+      <p>原始格式日期：{{ birthday }}</p>
+      <p >日期格式化：{{ birthday| date:'MM/dd/yy' }}</p>
+      <!-- 转换成大写 -->
+      <p>转换成大写：{{ birthday| date | uppercase }}</p>
+
+      <!-- 转换成小写 -->
+      <p>转换成小写：{{ birthday| date | lowercase }} </p>
+
+      <!-- 小数位数控制 -->
+      <!-- 接收的参数格式为{最少整数位数}.{最少小数位数}-{最多小数位数} -->
+      <!--保留2~4位小数--->
+
+       <p>{{p | number:'1.2-4'}}</p> 
+
+
+       <!-- 4. JavaScript 对象序列化 -->
+      <p>
+        {{ { name: 'semlinker' } | json }}
+     </p>
+
+     <!-- 5. slice -->
+     <p>{{ 'semlinker' | slice:0:3 }}</p> 
+
+     <!-- 6. 管道链 -->
+     <p>
+        {{ 'semlinker' | slice:0:3 | uppercase }}
+     </p> 
+
+
+
+   </fieldset>
+   <fieldset>
+         <legend>自定义管道</legend>
+         <p>{{ gender }}</p>
+         <p >{{ gender| sexPipe:'孙见伟' }}</p>
+      </fieldset>
+</div>

@@ -1,0 +1,10 @@
+nav {
+    height: 44px;
+    line-height: 44px;
+     padding: 0 20px;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

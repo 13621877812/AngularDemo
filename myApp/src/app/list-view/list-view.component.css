@@ -1,0 +1,32 @@
+fieldset ul {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+.btn {
+    margin-left: 30px;
+    width: 50px;
+    height: 40px;
+    background-color: palegreen;
+}
+.directive div {
+    width: 30%;
+    display: inline-block;
+    background-color: green;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+#divId {
+    color: yellowgreen;
+}
+.backgroundClass {
+    background-color: green;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
+
+

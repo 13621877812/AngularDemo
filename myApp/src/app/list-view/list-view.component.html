@@ -1,0 +1,91 @@
+<div>
+ <!-- 给子组件传参数  接收所传的参数用 $event-->
+ 
+ <!-- 非父子组件通讯方法
+      公共的服务
+      Localstorage (推荐)
+      Cookie
+ -->
+ <app-nav #navBar [title]="'常见知识点'" [parent]="this" (backClick)="back($event)"></app-nav>
+
+ <fieldset>
+   <legend>*ngFor for循环 ｜｜ 数据双向绑定 ｜｜ 两种导航传参 || 利用服务网络获取</legend>
+  
+   <!-- for循环 -->
+   <ul>
+      <li *ngFor="let model of models;let idp = index;">
+            <span>第{{idp}}条</span> &nbsp;&nbsp;&nbsp;
+            <a routerLink="detail/{{model.id}}"> {{model.name}} </a>
+            <button class="btn" (click)="delete(model.id)">删除</button>
+            <button class="btn" (click)="update(model.id)">修改</button>
+        </li>
+    </ul>
+
+    <!-- 网络用服务获取数据 -->
+   <ul>
+      <li *ngFor="let model of netModels;let idp = index;">
+            <span>第{{idp}}条</span> &nbsp;&nbsp;&nbsp;
+            <a routerLink="detail/{{model.id}}"> {{model.name}} </a>
+            <button class="btn" (click)="delete(model.id)">删除</button>
+            <button class="btn" (click)="update(model.id)">修改</button>
+        </li>
+    </ul>
+    
+    <!-- 双向数据绑定，声明@input 修饰的属性 -->
+    <div>
+      name: <input type="text" [(ngModel)]="name" placeholder="请输入名字"/> &nbsp;&nbsp;
+      adr: <input type="text" [(ngModel)]="addr" placeholder="请输入备注"/> &nbsp;&nbsp;&nbsp;&nbsp;
+       <input name="gender" type="radio"  value= "true"  [(ngModel)]="gender" /> 男
+       <input name="gender" type="radio" value= "false" [(ngModel)]="gender"/> 女 &nbsp;&nbsp;&nbsp;&nbsp;
+       <button (click)="addModel()">添加数据</button>
+    </div>
+
+ </fieldset>
+ <fieldset class="directive">
+        <legend>*ngIf if判断 || *ngSwitch </legend>
+        
+        <div >
+           <p *ngIf=" num > 2 ">显示大于2的内容</p>
+
+           <!-- 暂时还不明白什么意思 -->
+           <p template="ngIf num > 2">用模版表示显示大于2的内容</p>
+
+        </div>
+        <div >
+            <ul [ngSwitch]="score" >
+                <li *ngSwitchCase="1">已支付</li>
+                <li *ngSwitchCase="2">订单已经确认</li> <li *ngSwitchCase="3">已发货</li>
+                <li *ngSwitchDefault>无效</li>
+             </ul>
+        </div>
+       
+ </fieldset>
+ <fieldset>
+     <legend>其他指令</legend>
+     <div [innerHTML] = "h"></div>
+     <div [innerText] = "h"></div>
+
+     <!-- 绑定属性 -->
+     <div [id]="divId" [class]= "divclass" [title]="msg">调试工具看看我的属性</div>
+     <!--  [ngClass]、[ngStyle]  -->
+     <div [ngClass]="{'red': flag, 'blue': !flag}"> 
+            这是一个 div
+            <button (click)="changeColor()">改变颜色</button>
+    </div>
+    <div [ngStyle]="{'background-color':attr}">你好 ngStyle</div>
+
+
+
+ </fieldset>
+
+ 
+
+ <fieldset>
+     <legend>父组件和子组件交互</legend>
+     <button (click)="getChildMethod()">调用子组件的方法</button>
+     <button (click)="getChildProperty()">获取子组件的属性</button>
+ </fieldset>
+
+
+
+</div>

@@ -1,0 +1,12 @@
+<nav>
+    
+    <span (click)="goBack()" [hidden]="!backIsShow" >返回</span>
+
+    {{title}}
+
+    <span (click)="add()" [hidden]="!addIsShow" > 添加 </span>
+
+     <!-- 可以直接通过父组件对象获取父组件属性 -->
+    <!-- <span>{{parent.title}}</span> -->
+
+</nav>
