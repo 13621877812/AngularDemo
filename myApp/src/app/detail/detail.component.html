@@ -1,11 +1,25 @@
-<div>
+<div >
  <app-nav [title]= " '详情页面' "></app-nav>
-
- <div *ngIf="model">
+ <div class="content">
+ <div *ngIf="model" class="left">
+    <div>---NavigationExtras---</div>
     <div>ID：{{model.id}}</div>
     <div>name：{{model.name}}</div>
     <div>gender：{{model.gender}}</div>
     <div>addr：{{model.addr}}</div>
  </div>
 
+ <div *ngIf="updateModel" class="right">
+    <div>---更新数据---</div>
+   <div>ID：{{updateModel.id}}</div>
+   <div>name：{{updateModel.name}}</div>
+   <div>gender：{{updateModel.gender}}</div>
+   <div>addr：{{updateModel.addr}}</div>
+</div>
+
+<div>
+   <div>---不同路由的参数获取---</div>
+   <div>{{title}}</div>
+</div>
+</div>
 </div>

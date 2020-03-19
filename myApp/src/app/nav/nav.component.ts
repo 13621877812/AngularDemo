@@ -8,6 +8,7 @@
 */
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -30,9 +31,13 @@ export class NavComponent implements OnInit {
   //供父组件获取
   param:string = "子组件的属性";
 
-  constructor() { }
+  constructor( private router:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    //如果没有传参，就从路由配置器中加载
+    if ( !this.title || this.title.length == 0) {
+      this.title = this.activatedRoute.snapshot.data.title;
+    }
 
   }
   goBack(): void {
@@ -40,12 +45,15 @@ export class NavComponent implements OnInit {
     //可以通过获取 backClick 的属性来判断父组件是否实现了方法
     if (this.backClick.observers.length == 0) {
       //父组件没有实现子组件方法
-
+      
 
     } else {
       //父组件实现子组件的方法 通过length 可以判断当前对象被多少引用(一般为0或1)
       
     }
+    history.go(-1)
+    console.log(this.router)
+    console.log(this.router.url)
 
   }
   add(): void {

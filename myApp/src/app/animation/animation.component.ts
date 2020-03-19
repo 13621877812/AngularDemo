@@ -15,6 +15,7 @@ export class AnimationComponent implements OnInit {
 }
 
 
+
 /**             Angular中的生命周期函数
  * 
  *  生命周期函数通俗的讲就是组件创建、组件更新、组件销毁的时候会出发的一些列方法。
@@ -46,28 +47,5 @@ ngAfterViewChecked
  * 7、ngAfterViewChecked  ----- 组件每次检查视图时调用
  * 8、ngOnDestory ---- 指令销毁前调用 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ 
  * */ 

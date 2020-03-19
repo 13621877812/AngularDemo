@@ -76,8 +76,9 @@ export class ListViewComponent implements OnInit {
   }
   //修改数据
   update(id): void {
+
     const model:Model = this.models.find(model => model.id === id);
-    
+
 
     //进行导航和取参数
     // this.router.navigateByUrl("/detail/" + id)
@@ -92,7 +93,16 @@ export class ListViewComponent implements OnInit {
         addr: "传入参数"
       }
     };
-    this.router.navigate(['/detail/'+id],routerParams);
+    // this.router.navigate(['/detail/'+id],routerParams);
+
+    this.router.navigate(['/detail/'+id,{
+      id: 100,
+      name : '孙见伟',
+      gender: true,
+      addr: "传入参数"
+    }]);
+
+    
   }
  
 
@@ -124,3 +134,51 @@ export class ListViewComponent implements OnInit {
 
 
 }
+/**      关于路由
+ *   import { Router, ActivatedRoute, NavigationExtras} from '@angular/router';
+ *   constructor( private router:Router
+ *               ,private activatedRoute:ActivatedRoute) { }
+ *  
+ *   1.获取路由配置文件中的参数 {path:'/',component:component,data:{title:'title'}}
+ *     this.title = this.route.snapshot.data.title;
+ *      //  或者
+ *      this.route.data.subscribe(res=>{
+ *        this.title = res.title
+ *      })
+ *    2.json传输
+ *      const routerParams:NavigationExtras = {
+*            queryParams:{
+ *               id: 100,
+                 name : '孙见伟',
+ *               gender: true,
+                 addr: "传入参数"
+*             }
+         };
+         this.router.navigate(['/detail/'+id],routerParams);
+         
+         //获取restful 中的id
+         this.Id = this.route.snapshot.paramMap.get('id');
+         //获取json
+         this.activatedRoute.queryParams.subscribe((data:any) => {
+            this.model = data;
+        });
+
+      3.用navigateByUrl 路由
+         // this.router.navigateByUrl("/detail/" + id)
+        // this.Id = this.route.snapshot.paramMap.get('id');
+     
+       4.
+
+
+
+
+ *     
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+*/

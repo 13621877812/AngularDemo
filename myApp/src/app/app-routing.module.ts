@@ -11,12 +11,12 @@ import { DetailComponent } from './detail/detail.component';
 const routes: Routes = [
   {path:'list',component:ListViewComponent},
   // 重定向路由
-  {path:'',redirectTo:'/list'},
+  {path:'',redirectTo:'/list',pathMatch:'full'},
   {path:'pipe',component:PipeComponent},
-  {path:'animation',component:AnimationComponent},
+  {path:'animation',component:AnimationComponent,data:{title:'动画'}},
 
   
-  {path:'detail/:id',component:DetailComponent}
+  {path:'detail/:id',component:DetailComponent,data:{title:'首页'}}
 ];
 
 
